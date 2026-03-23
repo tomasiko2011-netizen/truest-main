@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Truest Digital — IT-компания в Казахстане. Боты, сайты, бизнес-сервисы, B2B решения и игры. 40+ проектов. От 30 000 ₸." />
+  <meta name="keywords" content="IT компания Казахстан, Telegram боты, WhatsApp боты, разработка сайтов, ERP, ЭДО, Алматы" />
+  <meta property="og:title" content="Truest Digital — IT-компания в Казахстане" />
+  <meta property="og:description" content="Боты, сайты, бизнес-сервисы, B2B решения и игры. 40+ проектов. От 30 000 ₸." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://truest.kz" />
+  <title>Truest Digital — IT-компания в Казахстане</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131a;
+      --surface2: #1a1a24;
+      --accent: #6c5ce7;
+      --accent-hover: #7d6ff0;
+      --green: #00b894;
+      --orange: #fdcb6e;
+      --text: #e8e8f0;
+      --text-muted: #8888a8;
+      --border: rgba(108, 92, 231, 0.18);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, var(--accent), var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .nav-cta:hover { background: var(--accent-hover) !important; transform: translateY(-1px); }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 24px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(108, 92, 231, 0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(0, 184, 148, 0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(108, 92, 231, 0.15);
+      border: 1px solid rgba(108, 92, 231, 0.35);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.75rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--green) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(108, 92, 231, 0.4);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text);
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ── Section common ── */
+    section { padding: 96px 24px; }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin-bottom: 56px;
+    }
+
+    /* ── Stats ── */
+    .stats { background: var(--surface); }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      padding: 40px 32px;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .stat-card:hover { background: var(--surface2); }
+
+    .stat-num {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, var(--accent), var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ── Directions ── */
+    .directions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .dir-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dir-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--green));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .dir-card:hover {
+      border-color: rgba(108, 92, 231, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .dir-card:hover::before { opacity: 1; }
+
+    .dir-card.wide { grid-column: span 2; }
+
+    .dir-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .icon-purple { background: rgba(108, 92, 231, 0.18); }
+    .icon-green  { background: rgba(0, 184, 148, 0.18); }
+    .icon-orange { background: rgba(253, 203, 110, 0.18); }
+    .icon-blue   { background: rgba(116, 185, 255, 0.18); }
+    .icon-pink   { background: rgba(253, 121, 168, 0.18); }
+
+    .dir-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .dir-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .dir-price {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--green);
+      background: rgba(0, 184, 148, 0.12);
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    .dir-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 4px;
+      transition: gap 0.2s;
+    }
+
+    .dir-link:hover { gap: 10px; }
+
+    /* ── Projects ── */
+    .projects { background: var(--surface); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .proj-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .proj-card:hover {
+      border-color: rgba(108, 92, 231, 0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .proj-emoji { font-size: 1.6rem; }
+
+    .proj-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .proj-card span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .proj-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 100px;
+      margin-top: 4px;
+      width: fit-content;
+    }
+
+    .tag-purple { background: rgba(108,92,231,0.15); color: var(--accent); }
+    .tag-green  { background: rgba(0,184,148,0.15); color: var(--green); }
+    .tag-orange { background: rgba(253,203,110,0.15); color: var(--orange); }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .about-text h2 { margin-bottom: 20px; }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-size: 1.05rem;
+    }
+
+    .about-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .fact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 18px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      transition: border-color 0.2s;
+    }
+
+    .fact-item:hover { border-color: rgba(108, 92, 231, 0.35); }
+
+    .fact-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .fact-item strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+
+    .fact-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      background: var(--surface);
+      text-align: center;
+    }
+
+    .cta-card {
+      background: linear-gradient(135deg, rgba(108,92,231,0.15) 0%, rgba(0,184,148,0.1) 100%);
+      border: 1px solid rgba(108,92,231,0.25);
+      border-radius: 24px;
+      padding: 72px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(108,92,231,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-card::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 250px; height: 250px;
+      background: radial-gradient(circle, rgba(0,184,148,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-card h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      margin-bottom: 16px;
+    }
+
+    .cta-card p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-tg {
+      background: #229ED9;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+
+    .btn-tg:hover {
+      background: #1a8fc3;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(34,158,217,0.4);
+    }
+
+    .btn-wa {
+      background: #25D366;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+
+    .btn-wa:hover {
+      background: #1fb855;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 64px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 12px 0 20px;
+      max-width: 260px;
+      line-height: 1.7;
+    }
+
+    .footer-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .footer-contact-link:hover { color: var(--text); }
+
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--accent); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.825rem;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .footer-bottom-links a:hover { color: var(--text); }
+
+    /* ── Floating buttons ── */
+    .float-btns {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 200;
+    }
+
+    .float-btn {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      transition: all 0.25s;
+    }
+
+    .float-btn:hover {
+      transform: scale(1.12) translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+
+    .float-tg { background: #229ED9; }
+    .float-wa { background: #25D366; }
+
+    /* ── Mobile ── */
+    @media (max-width: 900px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .directions-grid { grid-template-columns: 1fr 1fr; }
+      .dir-card.wide { grid-column: span 1; }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 64px; left: 0; right: 0;
+        background: rgba(10,10,15,0.97);
+        backdrop-filter: blur(16px);
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links.open a { font-size: 1rem; }
+      .burger { display: flex; }
+      .stat-num { font-size: 2.25rem; }
+      .stat-card { padding: 28px 20px; }
+      .directions-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+      .cta-card { padding: 48px 24px; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      section { padding: 64px 20px; }
+    }
+
+    @media (max-width: 400px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Animations ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">Truest Digital</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#directions">Направления</a></li>
+        <li><a href="#projects">Проекты</a></li>
+        <li><a href="#contacts" class="nav-cta">Связаться</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div style="position:relative; z-index:1; max-width:760px;">
+      <div class="hero-badge">IT-компания · Казахстан · 2024</div>
+      <h1>
+        <span class="gradient-text">Truest Digital</span> —<br />
+        IT-компания в Казахстане
+      </h1>
+      <p>Боты, сайты, бизнес-сервисы, B2B&nbsp;решения и&nbsp;игры. 40+&nbsp;проектов. От&nbsp;30&nbsp;000&nbsp;₸.</p>
+      <div class="hero-actions">
+        <a href="https://t.me/BotJasau" target="_blank" class="btn-primary">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M21.8 2.3L1.4 9.9c-.7.3-.7 1.3 0 1.5l5.1 1.7 1.9 5.9c.2.7 1.1.9 1.6.4l2.7-2.7 5.2 3.8c.5.4 1.3.1 1.4-.5l3-16.5c.2-.8-.6-1.5-1.5-1.2z"/></svg>
+          Написать в Telegram
+        </a>
+        <a href="#directions" class="btn-outline">
+          Смотреть направления
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats" id="stats">
+    <div class="section-inner">
+      <div class="stats-grid">
+        <div class="stat-card fade-in">
+          <div class="stat-num">40+</div>
+          <div class="stat-label">проектов запущено</div>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-num">5</div>
+          <div class="stat-label">направлений работы</div>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">городов Казахстана</div>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-num">3</div>
+          <div class="stat-label">собственных сервера</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Directions -->
+  <section id="directions">
+    <div class="section-inner">
+      <span class="section-label fade-in">Направления</span>
+      <h2 class="fade-in">Что мы делаем</h2>
+      <p class="section-sub fade-in">Пять специализированных направлений под разные задачи вашего бизнеса.</p>
+
+      <div class="directions-grid">
+
+        <!-- Боты -->
+        <a href="https://bots.truest.kz" target="_blank" class="dir-card fade-in">
+          <div class="dir-icon icon-purple">🤖</div>
+          <div>
+            <h3>Боты</h3>
+            <span style="font-size:0.75rem; color:var(--text-muted);">bots.truest.kz</span>
+          </div>
+          <p>Telegram и WhatsApp боты для бизнеса. AI-ассистенты, магазины, записи, рассылки.</p>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:4px;">
+            <span class="dir-price">От 30 000 ₸</span>
+            <span class="dir-link">Подробнее <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+        <!-- Сайты -->
+        <a href="https://sites.truest.kz" target="_blank" class="dir-card fade-in">
+          <div class="dir-icon icon-green">🌐</div>
+          <div>
+            <h3>Сайты</h3>
+            <span style="font-size:0.75rem; color:var(--text-muted);">sites.truest.kz</span>
+          </div>
+          <p>Сайты-визитки и лендинги. Современный дизайн, мобильная адаптация, PWA.</p>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:4px;">
+            <span class="dir-price">От 30 000 ₸</span>
+            <span class="dir-link">Подробнее <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+        <!-- Бизнес-сервисы -->
+        <a href="https://booking.truest.kz" target="_blank" class="dir-card wide fade-in">
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <div class="dir-icon icon-orange">📅</div>
+            <div style="flex:1;">
+              <h3>Бизнес-сервисы</h3>
+              <span style="font-size:0.75rem; color:var(--text-muted);">booking.truest.kz</span>
+              <p style="margin-top:10px;">Готовые платформы: рестораны, отели, автомойки, такси, логистика. Запуск за неделю.</p>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-top:14px;">
+                <span class="dir-price">От 50 000 ₸</span>
+                <span class="dir-link">Подробнее <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- B2B -->
+        <a href="https://b2b.truest.kz" target="_blank" class="dir-card fade-in">
+          <div class="dir-icon icon-blue">🏢</div>
+          <div>
+            <h3>B2B решения</h3>
+            <span style="font-size:0.75rem; color:var(--text-muted);">b2b.truest.kz</span>
+          </div>
+          <p>ERP, ЭДО, AutoCAD AI, аудит процессов. Экономия миллионов на операционных расходах.</p>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:4px;">
+            <span class="dir-price">От 80 000 ₸</span>
+            <span class="dir-link">Подробнее <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+        <!-- Игры -->
+        <a href="https://games.truest.kz" target="_blank" class="dir-card fade-in">
+          <div class="dir-icon icon-pink">🎮</div>
+          <div>
+            <h3>Игры</h3>
+            <span style="font-size:0.75rem; color:var(--text-muted);">games.truest.kz</span>
+          </div>
+          <p>Онлайн-игры: Белка, морской бой, гео-квиз, авто-квиз. Развлечения и геймификация для бизнеса.</p>
+          <div style="display:flex; justify-content:flex-end; margin-top:4px;">
+            <span class="dir-link">Играть <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects showcase -->
+  <section class="projects" id="projects">
+    <div class="section-inner">
+      <span class="section-label fade-in">Витрина</span>
+      <h2 class="fade-in">Живые проекты</h2>
+      <p class="section-sub fade-in">Реальные продукты, которые работают прямо сейчас.</p>
+
+      <div class="projects-grid">
+
+        <a href="https://edo.truest.kz" target="_blank" class="proj-card fade-in">
+          <div class="proj-emoji">📄</div>
+          <h4>ЭДО</h4>
+          <span>edo.truest.kz</span>
+          <span class="proj-tag tag-purple">B2B</span>
+        </a>
+
+        <a href="https://crm.truest.kz" target="_blank" class="proj-card fade-in">
+          <div class="proj-emoji">💬</div>
+          <h4>Chatwoot CRM</h4>
+          <span>crm.truest.kz</span>
+          <span class="proj-tag tag-purple">CRM</span>
+        </a>
+
+        <a href="https://opt.truest.kz" target="_blank" class="proj-card fade-in">
+          <div class="proj-emoji">👗</div>
+          <h4>Оптовая одежда</h4>
+          <span>opt.truest.kz</span>
+          <span class="proj-tag tag-green">Маркетплейс</span>
+        </a>
+
+        <a href="https://hotel.truest.kz" target="_blank" class="proj-card fade-in">
+          <div class="proj-emoji">🏨</div>
+          <h4>Управление отелем</h4>
+          <span>hotel.truest.kz</span>
+          <span class="proj-tag tag-orange">Бизнес-сервис</span>
+        </a>
+
+        <a href="https://autowash.truest.kz" target="_blank" class="proj-card fade-in">
+          <div class="proj-emoji">🚗</div>
+          <h4>Автомойка</h4>
+          <span>autowash.truest.kz</span>
+          <span class="proj-tag tag-orange">Бизнес-сервис</span>
+        </a>
+
+        <a href="https://halyk.truest.kz" target="_blank" class="proj-card fade-in">
+          <div class="proj-emoji">🛒</div>
+          <h4>Народный оптовик</h4>
+          <span>halyk.truest.kz</span>
+          <span class="proj-tag tag-green">Маркетплейс</span>
+        </a>
+
+        <a href="https://goldencaravan.kz" target="_blank" class="proj-card fade-in">
+          <div class="proj-emoji">🌍</div>
+          <h4>Golden Caravan</h4>
+          <span>goldencaravan.kz</span>
+          <span class="proj-tag tag-orange">Туризм</span>
+        </a>
+
+        <a href="https://artur.truest.kz" target="_blank" class="proj-card fade-in">
+          <div class="proj-emoji">🔧</div>
+          <h4>Сантехника Artur</h4>
+          <span>artur.truest.kz</span>
+          <span class="proj-tag tag-green">Интернет-магазин</span>
+        </a>
+
+        <a href="https://art-home.kz" target="_blank" class="proj-card fade-in">
+          <div class="proj-emoji">🏠</div>
+          <h4>Art Home</h4>
+          <span>art-home.kz</span>
+          <span class="proj-tag tag-green">Декор</span>
+        </a>
+
+        <a href="https://xn--e1afmapc.kz" target="_blank" class="proj-card fade-in">
+          <div class="proj-emoji">📦</div>
+          <h4>Товаровед</h4>
+          <span>товаровед.kz</span>
+          <span class="proj-tag tag-purple">ERP</span>
+        </a>
+
+        <a href="https://belka.truest.kz" target="_blank" class="proj-card fade-in">
+          <div class="proj-emoji">🐿️</div>
+          <h4>Белка</h4>
+          <span>belka.truest.kz</span>
+          <span class="proj-tag tag-orange">Игра</span>
+        </a>
+
+        <a href="https://games.truest.kz" target="_blank" class="proj-card fade-in">
+          <div class="proj-emoji">🎯</div>
+          <h4>Игровой портал</h4>
+          <span>games.truest.kz</span>
+          <span class="proj-tag tag-orange">Игры</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="section-label fade-in">О компании</span>
+          <h2 class="fade-in">Делаем IT-продукты,<br />которые работают</h2>
+          <p class="fade-in">Мы — команда разработчиков из Казахстана. Создаём IT-продукты для бизнеса: от простого бота за 30&nbsp;000&nbsp;₸ до полноценной ERP-системы.</p>
+          <p class="fade-in">40+&nbsp;проектов, 3&nbsp;сервера, 25+&nbsp;Vercel-приложений. Работаем быстро, сдаём в срок.</p>
+          <div style="display:flex; gap:12px; margin-top:28px;" class="fade-in">
+            <a href="https://t.me/BotJasau" target="_blank" class="btn-primary" style="font-size:0.9rem; padding:12px 22px;">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M21.8 2.3L1.4 9.9c-.7.3-.7 1.3 0 1.5l5.1 1.7 1.9 5.9c.2.7 1.1.9 1.6.4l2.7-2.7 5.2 3.8c.5.4 1.3.1 1.4-.5l3-16.5c.2-.8-.6-1.5-1.5-1.2z"/></svg>
+              Обсудить проект
+            </a>
+          </div>
+        </div>
+        <div class="about-facts">
+          <div class="fact-item fade-in">
+            <div class="fact-icon">⚡</div>
+            <div>
+              <strong>Быстрый запуск</strong>
+              <p>Простые проекты — от 3 дней. Готовые решения для бизнеса без долгих согласований.</p>
+            </div>
+          </div>
+          <div class="fact-item fade-in">
+            <div class="fact-icon">🔒</div>
+            <div>
+              <strong>Собственная инфраструктура</strong>
+              <p>3 выделенных сервера, резервное копирование, мониторинг 24/7.</p>
+            </div>
+          </div>
+          <div class="fact-item fade-in">
+            <div class="fact-icon">🤝</div>
+            <div>
+              <strong>Поддержка после запуска</strong>
+              <p>Не бросаем после сдачи. Обновления, доработки, техническая поддержка.</p>
+            </div>
+          </div>
+          <div class="fact-item fade-in">
+            <div class="fact-icon">💎</div>
+            <div>
+              <strong>Честные цены</strong>
+              <p>От 30 000 ₸. Фиксированная стоимость, без скрытых платежей.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contacts">
+    <div class="section-inner">
+      <div class="cta-card fade-in">
+        <span class="section-label">Контакты</span>
+        <h2>Нужен IT-продукт?</h2>
+        <p>Напишите нам — обсудим задачу и предложим решение. Бесплатная консультация.</p>
+        <div class="cta-buttons">
+          <a href="https://t.me/BotJasau" target="_blank" class="btn-tg">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M21.8 2.3L1.4 9.9c-.7.3-.7 1.3 0 1.5l5.1 1.7 1.9 5.9c.2.7 1.1.9 1.6.4l2.7-2.7 5.2 3.8c.5.4 1.3.1 1.4-.5l3-16.5c.2-.8-.6-1.5-1.5-1.2z"/></svg>
+            Telegram @BotJasau
+          </a>
+          <a href="https://wa.me/77010770199" target="_blank" class="btn-wa">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp +7 701 077-01-99
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Truest Digital</div>
+          <p>IT-компания в Казахстане. Боты, сайты, бизнес-сервисы, B2B решения и игры.</p>
+          <div class="footer-contacts">
+            <a href="https://t.me/BotJasau" target="_blank" class="footer-contact-link">
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M21.8 2.3L1.4 9.9c-.7.3-.7 1.3 0 1.5l5.1 1.7 1.9 5.9c.2.7 1.1.9 1.6.4l2.7-2.7 5.2 3.8c.5.4 1.3.1 1.4-.5l3-16.5c.2-.8-.6-1.5-1.5-1.2z" style="fill:#229ED9"/></svg>
+              @BotJasau
+            </a>
+            <a href="https://wa.me/77010770199" target="_blank" class="footer-contact-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              +7 701 077-01-99
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Направления</h4>
+          <ul>
+            <li><a href="https://bots.truest.kz" target="_blank">Боты</a></li>
+            <li><a href="https://sites.truest.kz" target="_blank">Сайты</a></li>
+            <li><a href="https://booking.truest.kz" target="_blank">Бизнес-сервисы</a></li>
+            <li><a href="https://b2b.truest.kz" target="_blank">B2B решения</a></li>
+            <li><a href="https://games.truest.kz" target="_blank">Игры</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Сервисы</h4>
+          <ul>
+            <li><a href="https://edo.truest.kz" target="_blank">ЭДО</a></li>
+            <li><a href="https://crm.truest.kz" target="_blank">Chatwoot CRM</a></li>
+            <li><a href="https://opt.truest.kz" target="_blank">Оптовая одежда</a></li>
+            <li><a href="https://hotel.truest.kz" target="_blank">Управление отелем</a></li>
+            <li><a href="https://autowash.truest.kz" target="_blank">Автомойка</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Проекты</h4>
+          <ul>
+            <li><a href="https://halyk.truest.kz" target="_blank">Народный оптовик</a></li>
+            <li><a href="https://goldencaravan.kz" target="_blank">Golden Caravan</a></li>
+            <li><a href="https://artur.truest.kz" target="_blank">Сантехника Artur</a></li>
+            <li><a href="https://art-home.kz" target="_blank">Art Home</a></li>
+            <li><a href="https://belka.truest.kz" target="_blank">Игра Белка</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Truest Digital &mdash; Казахстан</span>
+        <div class="footer-bottom-links">
+          <a href="https://truest.kz">truest.kz</a>
+          <a href="https://t.me/BotJasau" target="_blank">Telegram</a>
+          <a href="https://wa.me/77010770199" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating buttons -->
+  <div class="float-btns">
+    <a href="https://t.me/BotJasau" target="_blank" class="float-btn float-tg" title="Написать в Telegram">
+      <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path fill="#fff" d="M21.8 2.3L1.4 9.9c-.7.3-.7 1.3 0 1.5l5.1 1.7 1.9 5.9c.2.7 1.1.9 1.6.4l2.7-2.7 5.2 3.8c.5.4 1.3.1 1.4-.5l3-16.5c.2-.8-.6-1.5-1.5-1.2z"/></svg>
+    </a>
+    <a href="https://wa.me/77010770199" target="_blank" class="float-btn float-wa" title="Написать в WhatsApp">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+
+  <script>
+    // Burger menu
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Active nav on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinksAll = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 80) current = s.id;
+      });
+      navLinksAll.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--text)' : '';
+      });
+    });
+  </script>
+</body>
+</html>
